@@ -171,7 +171,6 @@ export function useCreateAppContext(): Context {
 
     const editMessage = useCallback(async (message: Message, content: string) => {
         resetAudioContext();
-        
         if (isShare) {
             return false;
         }
@@ -181,8 +180,7 @@ export function useCreateAppContext(): Context {
         }
 
         // const openaiApiKey = store.getState().apiKeys.openAIApiKey;
-        const openaiApiKey = chatManager.options.getOption<string>('openai', 'apiKey');
-
+        const openaiApiKey = process.env.REACT_APP_API_KEY;
         if (!openaiApiKey && !isProxySupported()) {
             dispatch(openOpenAIApiKeyPanel());
             return false;
