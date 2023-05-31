@@ -203,7 +203,7 @@ export default function Header(props: HeaderProps) {
             {context.isHome && <h2>{intl.formatMessage({ defaultMessage: "Chat with GPT", description: "app name" })}</h2>}
             <div className="spacer" />
             <HeaderButton icon="search" onClick={spotlight.openSpotlight} />
-            <HeaderButton icon="gear" onClick={openSettings} />
+            {/* <HeaderButton icon="gear" onClick={openSettings} /> */}
             {backend.current && !props.share && props.canShare && typeof navigator.share !== 'undefined' && <HeaderButton icon="share" onClick={props.onShare}>
                 <FormattedMessage defaultMessage="Share" description="Label for the button used to create a public share URL for a chat log" />
             </HeaderButton>}

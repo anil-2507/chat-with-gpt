@@ -7,7 +7,7 @@ export const defaultParameters: Parameters = {
 };
 
 export function loadParameters(id: string | null | undefined = null): Parameters {
-    const apiKey = localStorage.getItem('openai-api-key') || undefined;
+    const apiKey: any = process.env.REACT_APP_API_KEY ? process.env.REACT_APP_API_KEY : localStorage.getItem('openai-api-key') ;
     const key = id ? `parameters-${id}` : 'parameters';
     try {
         const raw = localStorage.getItem(key);
