@@ -304,7 +304,7 @@ export default function MessageComponent(props: { message: Message, last: boolea
                 {props.last && <EndOfChatMarker />}
             </Container>
         )
-    }, [props.last, props.share, editing, content, context, props.message, props.message.content, tab]);
+    }, [props.last, props.share, editing, content, context, props.message, props.message.content]);
 
     return elem;
 }
