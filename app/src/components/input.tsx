@@ -43,7 +43,8 @@ export default function MessageInput(props: MessageInputProps) {
     const [speechError, setSpeechError] = useState<string | null>(null);
     const hasVerticalSpace = useMediaQuery('(min-height: 1000px)');
     const [useOpenAIWhisper] = useOption<boolean>('speech-recognition', 'use-whisper');
-    const [openAIApiKey] = useOption<string>('openai', 'apiKey');
+    const openAIApiKey = process.env.REACT_APP_API_KEY;
+    // useOption<string>('openai', 'apiKey');
 
     const [initialMessage, setInitialMessage] = useState('');
     const {

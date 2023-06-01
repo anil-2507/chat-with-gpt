@@ -146,7 +146,8 @@ export default function Header(props: HeaderProps) {
     const navigate = useNavigate();
     const spotlight = useSpotlight();
     const [loading, setLoading] = useState(false);
-    const [openAIApiKey] = useOption<string>('openai', 'apiKey');
+    const openAIApiKey = process.env.REACT_APP_API_KEY;
+    // useOption<string>('openai', 'apiKey');
     const dispatch = useAppDispatch();
     const intl = useIntl();
 
@@ -203,11 +204,11 @@ export default function Header(props: HeaderProps) {
             {context.isHome && <h2>{intl.formatMessage({ defaultMessage: "Chat with GPT", description: "app name" })}</h2>}
             <div className="spacer" />
             <HeaderButton icon="search" onClick={spotlight.openSpotlight} />
-            <HeaderButton icon="gear" onClick={openSettings} />
+            {/* <HeaderButton icon="gear" onClick={openSettings} /> */}
             {backend.current && !props.share && props.canShare && typeof navigator.share !== 'undefined' && <HeaderButton icon="share" onClick={props.onShare}>
                 <FormattedMessage defaultMessage="Share" description="Label for the button used to create a public share URL for a chat log" />
             </HeaderButton>}
-            {backend.current && !context.authenticated && (
+            {/* {backend.current && !context.authenticated && (
                 <HeaderButton onClick={localStorage.getItem('registered') ? signIn : signUp}>
                     <FormattedMessage defaultMessage="Sign in <h>to sync</h>"
                         description="Label for sign in button, which indicates that the purpose of signing in is to sync your data between devices. Less important text inside <h> tags is hidden on small screens."
@@ -215,7 +216,7 @@ export default function Header(props: HeaderProps) {
                             h: (chunks: any) => <span className="hide-on-mobile">{chunks}</span>
                         }} />
                 </HeaderButton>
-            )}
+            )} */}
             <HeaderButton icon="plus" onClick={onNewChat} loading={loading} variant="light">
                 <FormattedMessage defaultMessage="New Chat" description="Label for the button used to start a new chat session" />
             </HeaderButton>

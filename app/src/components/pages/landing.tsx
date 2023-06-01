@@ -21,7 +21,8 @@ const Container = styled.div`
 `;
 
 export default function LandingPage(props: any) {
-    const [openAIApiKey] = useOption<string>('openai', 'apiKey');
+    const openAIApiKey = process.env.REACT_APP_API_KEY;
+    // useOption<string>('openai', 'apiKey');
     const dispatch = useAppDispatch();
     const onConnectButtonClick = useCallback(() => dispatch(openOpenAIApiKeyPanel()), [dispatch]);
 
