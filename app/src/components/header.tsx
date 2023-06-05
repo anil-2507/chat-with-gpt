@@ -146,7 +146,7 @@ export default function Header(props: HeaderProps) {
     const navigate = useNavigate();
     const spotlight = useSpotlight();
     const [loading, setLoading] = useState(false);
-    const openAIApiKey = process.env.REACT_APP_API_KEY;
+    // const openAIApiKey = process.env.REACT_APP_API_KEY;
     // useOption<string>('openai', 'apiKey');
     const dispatch = useAppDispatch();
     const intl = useIntl();
@@ -165,9 +165,9 @@ export default function Header(props: HeaderProps) {
         setTimeout(() => document.querySelector<HTMLTextAreaElement>('#message-input')?.focus(), 100);
     }, [navigate]);
 
-    const openSettings = useCallback(() => {
-        dispatch(setTab(openAIApiKey ? 'chat' : 'user'));
-    }, [openAIApiKey, dispatch]);
+    // const openSettings = useCallback(() => {
+    //     dispatch(setTab(openAIApiKey ? 'chat' : 'user'));
+    // }, [openAIApiKey, dispatch]);
 
     const signIn = useCallback(() => {
         if ((window as any).AUTH_PROVIDER !== 'local') {
@@ -221,7 +221,7 @@ export default function Header(props: HeaderProps) {
                 <FormattedMessage defaultMessage="New Chat" description="Label for the button used to start a new chat session" />
             </HeaderButton>
         </HeaderContainer>
-    </>), [sidebarOpen, onBurgerClick, props.title, props.share, props.canShare, props.onShare, openSettings, onNewChat, 
+    </>), [sidebarOpen, onBurgerClick, props.title, props.share, props.canShare, props.onShare, onNewChat, 
         loading, context.authenticated, context.sessionExpired, context.isHome, context.isShare, spotlight.openSpotlight, signIn, signUp]);
 
     return header;

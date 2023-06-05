@@ -53,14 +53,14 @@ export function QuickSettingsButton(props: { groupID: string, option: Option }) 
 }
 
 export default function QuickSettings(props: any) {
-    const context = useAppContext();
-    const options = context.chat.getQuickSettings();
+    // const context = useAppContext();
+    // const options = context.chat.getQuickSettings();
 
-    if (!options.length) {
+    // if (!options.length) {
         return <div style={{ height: '1rem' }} />;
-    }
+    // }
 
-    return <Container>
-        {options.map(o => <QuickSettingsButton groupID={o.groupID} option={o.option} key={o.groupID + "." + o.option.id} />)}
-    </Container>;
+    // return <Container>
+    //     {options.map(o => <QuickSettingsButton groupID={o.groupID} option={o.option} key={o.groupID + "." + o.option.id} />)}
+    // </Container>;
 }

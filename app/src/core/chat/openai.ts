@@ -74,6 +74,7 @@ export async function createChatCompletion(messages: OpenAIMessage[], parameters
 
     const data = await response.json();
 
+    console.log(data, 'data');
     return data.choices[0].message?.content?.trim() || '';
 }
 
@@ -131,7 +132,11 @@ export async function createStreamingChatCompletion(messages: OpenAIMessage[], p
         }
     });
 
+
     eventSource.stream();
+
+    console.log(eventSource, "eventSource");
+
 
     return {
         emitter,

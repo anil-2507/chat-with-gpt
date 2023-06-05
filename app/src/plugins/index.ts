@@ -8,7 +8,7 @@ import ElevenLabsPlugin from "../tts-plugins/elevenlabs";
 import WebSpeechPlugin from "../tts-plugins/web-speech";
 
 export const registeredPlugins: Array<typeof Plugin<any>> = [
-    SystemPromptPlugin,
+    // SystemPromptPlugin,
     ContextTrimmerPlugin,
     TitlePlugin,
     WebSpeechPlugin,
